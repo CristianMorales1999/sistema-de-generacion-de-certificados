@@ -28,7 +28,7 @@ return new class extends Migration
             $table->foreignId('certificate_status_id')
                 ->nullable()
                 ->constrained('certificate_statuses')  // Relación con la tabla 'certificate_statuses'
-                ->onDelete('set null')  // Eliminar en cascada
+                ->onDelete('set null')  // Set null
                 ->onUpdate('cascade');  // Actualizar en cascada
 
             // Definir la columna 'code' como VARCHAR(100) y 'is_validated' como BOOL
