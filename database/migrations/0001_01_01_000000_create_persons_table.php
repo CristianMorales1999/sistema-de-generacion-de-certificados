@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('persons', function (Blueprint $table) {
             $table->id();
-            $table->string('dni',8)->nullable()->unique();
-            $table->string('first_name',150);
-            $table->string('last_name',150);
-            $table->string('personal_email',150)->nullable()->unique();
-            $table->string('institutional_email',150)->nullable()->unique();
-            $table->string('phone_number',12)->nullable();
-            $table->unsignedTinyInteger('gender');//0: Masculino | 1: Femenino
+            $table->string('dni', 8)->nullable()->unique();
+            $table->string('first_name', 150);
+            $table->string('last_name', 150);
+            $table->string('personal_email')->nullable()->unique(); // Con longitud predeterminada de 255
+            $table->string('institutional_email')->nullable()->unique(); // Con longitud predeterminada de 255
+
+            $table->string('phone_number', 15)->nullable();
+            $table->enum('gender', ['masculino', 'femenino']); // Uso de enum para mayor claridad
             $table->timestamps();
         });
     }
