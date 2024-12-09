@@ -16,19 +16,25 @@ return new class extends Migration
 
             // Definir las claves foráneas con las acciones correspondientes
             $table->foreignId('certification_type_id')
-                  ->constrained('certification_types')
-                  ->onDelete('cascade')
-                  ->onUpdate('cascade'); // Clave foránea para 'certification_type_id'
+                ->constrained('certification_types')
+                ->onDelete('cascade')
+                ->onUpdate('cascade'); // Clave foránea para 'certification_type_id'
 
             $table->foreignId('created_by_user_id')->nullable()
-                  ->constrained('users')
-                  ->onDelete('set null')
-                  ->onUpdate('cascade'); // Clave foránea para 'created_by_user_id'
+                ->constrained('users')
+                ->onDelete('set null')
+                ->onUpdate('cascade'); // Clave foránea para 'created_by_user_id'
 
             $table->foreignId('certified_by_user_id')->nullable()
-                  ->constrained('users')
-                  ->onDelete('set null')
-                  ->onUpdate('cascade'); // Clave foránea para 'certified_by_user_id' (nullable)
+                ->constrained('users')
+                ->onDelete('set null')
+                ->onUpdate('cascade'); // Clave foránea para 'certified_by_user_id' (nullable)
+
+            $table->foreignId('area_id')->nullable()
+                ->constrained('users')
+                ->onDelete('set null')
+                ->onUpdate('cascade'); // Clave foránea para 'area_id' (nullable)
+
 
             $table->string('name', 300); // Crea la columna 'name' como VARCHAR(300) y permite NULL
             $table->text('description')->nullable(); // Crea la columna 'description' como TEXT y permite NULL
