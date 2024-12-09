@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('area_person', function (Blueprint $table) {
             $table->foreignId('person_id') // Crea la columna 'person_id' como UNSIGNED BIGINT y define la clave foránea
-                ->constrained('persons') // Hace la referencia a la tabla 'persons' automáticamente con la columna 'id'
+                ->constrained('people') // Hace la referencia a la tabla 'people' automáticamente con la columna 'id'
                 ->onDelete('cascade') // Define la acción ON DELETE CASCADE
                 ->onUpdate('cascade'); // Define la acción ON UPDATE CASCADE
 

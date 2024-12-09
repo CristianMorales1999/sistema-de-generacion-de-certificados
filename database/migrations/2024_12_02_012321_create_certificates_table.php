@@ -16,7 +16,7 @@ return new class extends Migration
 
             // Definir las claves foráneas
             $table->foreignId('person_id')
-                ->constrained('persons')  // Relación con la tabla 'persons'
+                ->constrained('people')  // Relación con la tabla 'people'
                 ->onDelete('cascade')  // Eliminar en cascada
                 ->onUpdate('cascade');  // Actualizar en cascada
 

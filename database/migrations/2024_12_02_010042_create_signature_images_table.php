@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('signature_images', function (Blueprint $table) {
             $table->id(); // Crea la columna 'id' como UNSIGNED BIGINT y la clave primaria
             $table->foreignId('person_id') // Crea la columna 'person_id' como UNSIGNED BIGINT y define la clave foránea
-                ->constrained('persons') // Hace la referencia a la tabla 'persons' automáticamente con la columna 'id'
+                ->constrained('people') // Hace la referencia a la tabla 'people' automáticamente con la columna 'id'
                 ->onDelete('cascade') // Define la acción ON DELETE CASCADE
                 ->onUpdate('cascade'); // Define la acción ON UPDATE CASCADE
 
