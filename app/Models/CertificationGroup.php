@@ -36,6 +36,14 @@ class CertificationGroup extends Model
     ];
 
     /**
+     * Relación muchos a uno con CertificationType.
+     */
+    public function certificationType(): BelongsTo
+    {
+        return $this->belongsTo(CertificationType::class, 'certification_type_id');
+    }
+
+    /**
      * Relación muchos a uno con el modelo User (creador).
      */
     public function createdBy():BelongsTo
@@ -78,5 +86,18 @@ class CertificationGroup extends Model
             'certification_group_id',  // Clave foránea para CertificationGroup en la tabla pivot
             'date_id'                  // Clave foránea para Date en la tabla pivot
         )->withTimestamps();           // Indica que la tabla pivot incluye `created_at` y `updated_at`
+    }
+
+    /**
+     * Relación muchos a muchos con Image.
+     */
+    public function images(): BelongsToMany
+    {
+        return $this->belongsToMany(
+            Image::class,
+            'certification_group_image',  // Tabla pivot
+            'certification_group_id',    // Clave foránea de CertificationGroup en la tabla pivot
+            'image_id'                   // Clave foránea de Image en la tabla pivot
+        )->withTimestamps();              // Incluye `created_at` y `updated_at` de la tabla pivot
     }
 }
