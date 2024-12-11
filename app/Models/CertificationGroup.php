@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class CertificationGroup extends Model
 {
@@ -57,6 +58,15 @@ class CertificationGroup extends Model
     public function certifiedBy():BelongsTo
     {
         return $this->belongsTo(User::class, 'certified_by_user_id');
+    }
+
+
+    /**
+     * Relación uno a muchos con Certificate.
+     */
+    public function certificates(): HasMany
+    {
+        return $this->hasMany(Certificate::class, 'certification_group_id');
     }
 
     /**
