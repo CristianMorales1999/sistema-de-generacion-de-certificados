@@ -64,4 +64,19 @@ class CertificationGroup extends Model
         )->withPivot(['font_configuration_id'])// Incluye los campos adicionales de la tabla pivot
         ->withTimestamps();
     }
+
+    /**
+     * Relación muchos a muchos con Date.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function dates(): BelongsToMany
+    {
+        return $this->belongsToMany(
+            Date::class,
+            'certification_group_date', // Nombre de la tabla pivot
+            'certification_group_id',  // Clave foránea para CertificationGroup en la tabla pivot
+            'date_id'                  // Clave foránea para Date en la tabla pivot
+        )->withTimestamps();           // Indica que la tabla pivot incluye `created_at` y `updated_at`
+    }
 }
