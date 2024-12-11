@@ -60,6 +60,13 @@ class CertificationGroup extends Model
         return $this->belongsTo(User::class, 'certified_by_user_id');
     }
 
+    /**
+     * Relación muchos a uno con Area.
+     */
+    public function area(): BelongsTo
+    {
+        return $this->belongsTo(Area::class, 'area_id');
+    }
 
     /**
      * Relación uno a muchos con Certificate.

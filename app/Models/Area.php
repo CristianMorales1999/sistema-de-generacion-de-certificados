@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Area extends Model
 {
@@ -35,6 +36,14 @@ class Area extends Model
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
     ];
+
+    /**
+     * Relación uno a muchos con CertificationGroup.
+     */
+    public function certificationGroups(): HasMany
+    {
+        return $this->hasMany(CertificationGroup::class, 'area_id');
+    }
 
     /**
      * Relación muchos a muchos con el modelo Person.
