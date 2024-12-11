@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class CertificationGroup extends Model
 {
@@ -48,5 +49,19 @@ class CertificationGroup extends Model
     public function certifiedBy():BelongsTo
     {
         return $this->belongsTo(User::class, 'certified_by_user_id');
+    }
+
+    /**
+     * Relación muchos a muchos con el modelo CertificateTextType.
+     */
+    public function certificateTextTypes():BelongsToMany
+    {
+        return $this->belongsToMany(
+            CertificateTextType::class,
+            'certificate_text_type_certification_group',//nombre de la tabla pivot 
+            'certification_group_id',// Clave foránea en la tabla pivot para CertificationGroup
+            'certificate_text_type_id'// Clave foránea en la tabla pivot para CertificateTextType
+        )->withPivot(['font_configuration_id'])// Incluye los campos adicionales de la tabla pivot
+        ->withTimestamps();
     }
 }
