@@ -117,4 +117,17 @@ class CertificationGroup extends Model
             'image_id'                   // Clave foránea de Image en la tabla pivot
         )->withTimestamps();              // Incluye `created_at` y `updated_at` de la tabla pivot
     }
+
+    /**
+     * Relación muchos a muchos con SignatureImage.
+     */
+    public function signatureImages(): BelongsToMany
+    {
+        return $this->belongsToMany(
+            SignatureImage::class,
+            'certification_group_signature_image',
+            'certification_group_id',
+            'signature_image_id'
+        )->withTimestamps();
+    }
 }
