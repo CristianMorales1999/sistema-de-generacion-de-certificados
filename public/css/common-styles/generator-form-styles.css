@@ -1,0 +1,303 @@
+
+.main-container /* Contenido(fuera de header) */
+{
+    width: 100%;
+    margin: 0;
+    padding: 40px 79px 70px;
+}
+
+/*==================Generacion de certificados================== */
+.certificate-generator-container 
+{
+    display: flex;
+    justify-content:center;
+    align-items: start;
+    gap: 44px;
+    width: 100%;
+}
+
+.certificate-preview-container  /* White box */
+{
+    width: 710px;
+    max-height: 550px;
+    background-color: var(--color-neutral-0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 220px auto;
+}
+
+.form-general-data {
+  width: 528px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+}
+.dropdown * {
+  box-sizing: border-box;
+}
+
+.dropdown {
+  width: 100%;
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.dropdown-button {
+  width: 100%;
+  background-color: var(--color-neutral-0);
+  color: var(--color-neutral-700);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1.5px solid var(--color-neutral-700);
+  border-radius: 12px;
+  padding: 12px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.dropdown-button-clicked {
+  background-color: var(--color-primary-25);
+  box-shadow: 0px 0px 5px rgba(127, 89, 248, 0.2),
+    0px 7px 10px rgba(127, 89, 248, 0.14),
+    0px 2px 16px rgba(127, 89, 248, 0.12);
+}
+
+.dropdown-button:hover {
+  background-color: var(--color-primary-50);
+}
+
+.dropdown-caret {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid var(--color-neutral-700);
+  transition: transform 0.3s;
+}
+
+.dropdown-caret-rotate {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  list-style: none;
+  padding: 0.5em 0;
+  background: var(--color-neutral-0);
+  border: 1px solid var(--color-neutral-700);
+  box-shadow: 0px 0px 5px rgba(127, 89, 248, 0.2),
+    0px 7px 10px rgba(127, 89, 248, 0.14),
+    0px 2px 16px rgba(127, 89, 248, 0.12);
+  border-radius: 12px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  display: none;
+  z-index: 1;
+  transition: opacity 0.2s ease;
+}
+
+.dropdown-menu-open {
+  display: block;
+  opacity: 1;
+}
+
+.dropdown-menu li {
+  padding: 0.7em;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.dropdown-menu li:hover,
+.dropdown-option-active {
+  background-color: var(--color-primary-50);
+}
+
+
+/* *************RULER************** */
+.formHorizontalRule
+{
+    width: 100%;
+    border-top: 2px solid var(--color-neutral-700);
+    margin-bottom: 24px;
+}
+
+.dropdown-text-title
+{
+    display: block;
+    margin-bottom: 20px;
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-medium);
+}
+
+
+.dropdown-menu a:visited {
+  color: var(--color-neutral-700);
+}
+
+
+.modal-rol-content { /* Ventana modal */
+  background: var(--color-neutral-0);
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  max-height: 307px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+        0px 0px 5px 0px rgba(127, 89, 248, 0.2),
+        0px 7px 10px 0px rgba(127, 89, 248, 0.14),
+        0px 2px 16px 0px rgba(127, 89, 248, 0.12);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+
+
+
+
+/* DROPDOWN CON BUSCADOR */
+
+/* Dropdown con buscador */
+.search-dropdown {
+  position: relative;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.search-dropdown-button {
+  width: 100%;
+  background-color: var(--color-neutral-0);
+  color: var(--color-neutral-700);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1.5px solid var(--color-neutral-700);
+  border-radius: 12px;
+  padding: 12px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.search-dropdown-button:hover {
+  background-color: var(--color-primary-50);
+}
+
+.search-dropdown-caret {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid var(--color-neutral-700);
+  transition: transform 0.3s;
+}
+
+.search-dropdown-caret-rotate {
+  transform: rotate(180deg);
+}
+
+.search-dropdown-menu {
+  list-style: none;
+  padding: 0;
+  background: var(--color-neutral-0);
+  border: 1px solid var(--color-neutral-700);
+  box-shadow: 0px 0px 5px rgba(127, 89, 248, 0.2),
+    0px 7px 10px rgba(127, 89, 248, 0.14),
+    0px 2px 16px rgba(127, 89, 248, 0.12);
+  border-radius: 12px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  display: none;
+  z-index: 1;
+  transition: opacity 0.2s ease;
+}
+
+.search-dropdown-menu-open {
+  display: block;
+  opacity: 1;
+}
+
+.search-dropdown-search-container {
+  padding: 0.5em;
+  border-bottom: 1px solid var(--color-neutral-700);
+  display: flex;
+  align-items: baseline;
+}
+
+.search-dropdown-input {
+  width: 100%;
+  padding: 0.5em;
+  margin-left:5px;
+  border: none;
+  outline: none;
+  font-size: var(--font-size-medium);
+  border-radius: 8px;
+  box-shadow: inset 0 0 5px rgba(127, 89, 248, 0.12);
+}
+
+.search-dropdown-options {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.search-dropdown-options li {
+  padding: 0.7em;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.search-dropdown-options li:hover {
+  background-color: var(--color-primary-50);
+}
+
+
+/* ********************************************************************************************* */
+
+/* Asegura que los contenedores tengan el mismo ancho */
+.container-search-dropdown-plus {
+  display: flex;
+  align-items: baseline;
+  gap: 5px; /* Mantiene el espacio consistente */
+  width: 100%; /* Ocupa todo el ancho disponible */
+}
+
+.container-search-dropdown-plus .search-dropdown {
+  flex: 1; /* Se expande para igualar el ancho del dropdown de plantillas */
+}
+
+.container-search-dropdown-plus .btn-icon-only {
+  flex-shrink: 0; /* Evita que el botón cambie de tamaño */
+  width: 48px; /* Tamaño fijo del botón */
+  height: 48px; /* Tamaño fijo del botón */
+  padding: 0; /* Sin espacio interno */
+  border-radius: 10px; /* Forma circular */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-search-dropdown-plus .btn-icon-only img {
+  width: 20px; /* Ajusta el tamaño del ícono */
+  height: 20px;
+}
+
+/* Mantiene alineado el dropdown de plantillas */
+.form-dropdown-row {
+  display: flex;
+  gap: 18px; /* Espacio entre elementos */
+  width: 100%; /* Ocupa todo el ancho disponible */
+  justify-content: flex-start; /* Alinea los elementos al inicio */
+  align-items: baseline; /* Alinea verticalmente */
+}

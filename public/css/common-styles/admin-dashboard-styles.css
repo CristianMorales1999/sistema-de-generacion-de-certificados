@@ -1,0 +1,124 @@
+#admin-header
+{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center; /* horizontal */
+    justify-content: space-between;
+    max-height: 103px;
+    padding-top:0;
+    padding-bottom:0;
+    z-index: 1000; 
+    position:sticky;
+    background-color: var(--color-neutral-0);
+    box-shadow: 
+        0px 0px 5px 0px rgba(127, 89, 248, 0.2),
+        0px 7px 10px 0px rgba(127, 89, 248, 0.14),
+        0px 2px 16px 0px rgba(127, 89, 248, 0.12); 
+}
+
+.admin-container-fluid /* Header */
+{
+    width: 100%;
+    padding-right: 24px;
+    padding-left: 24px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* *********************POR REVISAR************************ */
+
+/* Menú lateral */
+.sidebar {
+    position: fixed;
+    top: 50px; /* Altura del header */
+    left: 0;
+    width: 240px;
+    z-index: 100;
+    height: calc(100vh - 50px); /* Resto de la altura después del header */
+    background-color: var(--color-neutral-0);
+    overflow-y: auto; /* Permite scroll si el contenido excede */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    padding-top: 20px;
+}
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    padding: 15px 20px;
+  }
+  
+  .sidebar ul li.active {
+    background-color: var(--color-accent-300); /* Color cuando está activo */
+    color: white;
+  }
+  
+  .sidebar ul li.active:hover {
+    background-color: var(--color-primary-300); /* Un tono más oscuro cuando se hace hover sobre un item activo */
+    color: white;
+  }
+  
+  .sidebar ul li:hover:not(.active) {
+    background-color: var(--color-accent-100); /* Color de hover para ítems no activos */
+    color: white;
+  }
+  
+  
+  
+  .sidebar ul li a {
+    text-decoration: none;
+    color: var(--color-primary-800);
+    display: block;
+  }
+  
+
+  /* Contenido del dashboard */
+.dashboard-container {
+    display: flex;
+    margin-left: 180px; /* Espacio del menú lateral */
+  }
+  
+  .dashboard-content {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .stat-box {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .stat-box h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+  }
+  
+  .stat-box i {
+    font-size: 2rem;
+    color: var(--color-primary-300);
+  }
+  
+  .chart {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+
+
+

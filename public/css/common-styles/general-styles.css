@@ -1,0 +1,24 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+}
+
+/* Para incluir el border y padding en el ancho y alto definidos en cada elemento */
+*,
+*::before,
+*::after
+{
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-color: var(--color-neutral-0);
+}
+
+a
+{
+    text-decoration: none;
+}

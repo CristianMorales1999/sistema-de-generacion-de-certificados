@@ -1,0 +1,295 @@
+#header
+{
+    width: 100%;
+    display: flex;
+    align-items: center; /* horizontal */
+    justify-content: space-between;
+    max-height: 103px;
+    padding-top:0;
+    padding-bottom:0;
+    z-index:99;
+    position:sticky;
+    background-color: var(--color-neutral-0);
+    box-shadow: 
+        0px 0px 5px 0px rgba(127, 89, 248, 0.2),
+        0px 7px 10px 0px rgba(127, 89, 248, 0.14),
+        0px 2px 16px 0px rgba(127, 89, 248, 0.12); 
+}
+
+@media (max-width:768px)
+{
+    header{
+        flex-direction: colum;
+    }
+}
+
+/* =================CONTENEDORES===================== */
+.container-fluid /* Header */
+{
+    width: 100%;
+    padding-right: 180px;
+    padding-left: 180px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.content-wrapper /* Secciones de contenido principal, footer */
+{
+    width: 100%;
+    padding-bottom: 70px;
+    margin:0 auto 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:20px;
+}
+
+
+/* =================IMAGENES===================== */
+.logo
+{
+    width: 178px;
+}
+
+.cover-certificate-container
+{
+    width: 600px;
+    height: auto;
+    padding: 3px;
+    margin: 40px auto;
+
+    box-shadow: 
+        0px 0px 5px 0px rgba(127, 89, 248, 0.2),
+        0px 7px 10px 0px rgba(127, 89, 248, 0.14),
+        0px 2px 16px 0px rgba(127, 89, 248, 0.12); 
+    background: linear-gradient(90deg, rgba(62, 26, 109, 1) 0%, rgba(108, 45, 145, 1) 50%, rgba(181, 124, 190, 1) 100%);
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cover-certificate-container img
+{
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.certificate-gallery
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    border-radius: 4px;
+    padding: 17px;
+    overflow-x: auto; /* Desplazar en x si hay muchos certificados */
+    margin: 30px auto 200px;
+    box-shadow: 
+        0px 0px 5px 0px rgba(127, 89, 248, 0.2),
+        0px 7px 10px 0px rgba(127, 89, 248, 0.14),
+        0px 2px 16px 0px rgba(127, 89, 248, 0.12); 
+    background: linear-gradient(90deg, rgba(62, 26, 109, 1) 0%, rgba(108, 45, 145, 1) 50%, rgba(181, 124, 190, 1) 100%);
+}
+
+.certificate-card
+{
+    width: 180px;
+    height: auto;
+    object-fit: cover; /* Reajustar sin distorcion */
+    border-radius: 4px;
+}
+
+/* =================ENLACES===================== */
+a{
+    text-decoration: none;
+}
+
+/*=================ICONOS===================== */
+.icon-container {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+}
+
+.social-icon {
+    width: 32px;
+    height: 32px;
+    fill: var(--color-primary-300);
+    transition: transform 0.3s ease, fill 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+    
+    cursor:pointer;
+    fill: var(--color-accent-300);
+}
+
+
+/* =================FOOTER=================== */
+.footer
+{
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding: auto;
+}
+/* ONDAS DE FOOTER */
+.rectangle-footer
+{
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center; /* horizontal */
+    justify-content: space-between;
+    padding-top:0;
+    padding-bottom:0;
+    z-index:99;
+    background: linear-gradient(90deg, rgba(62, 26, 109, 1) 0%, rgba(108, 45, 145, 1) 50%, rgba(181, 124, 190, 1) 100%);
+}
+
+
+/* =================LOGIN===================== */
+.login-container
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 428px;
+    max-height: 804px;
+    background-color: white; /* SOLUCIONAR: No se aplica */
+    border-radius: 10px;
+    box-shadow: 
+        0px 0px 5px 0px rgba(127, 89, 248, 0.2),
+        0px 7px 10px 0px rgba(127, 89, 248, 0.14),
+        0px 2px 16px 0px rgba(127, 89, 248, 0.12);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px; /* Espaciado interno para que no queden pegados al borde */
+}
+
+form
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.login-container h2
+{
+    text-align: center;
+    margin: 30px auto 10px;
+    color: var(--color-primary-300);
+}
+.input-group {
+    width: 100%; 
+}
+
+.input-group input {
+    width: 100%;
+    height: 56px;
+    padding: 20px;
+    border-radius: 10px;
+    border: none;
+    margin: 5px 0;
+    font-size: var(--text-medium-medium);
+    color: var(--color-neutral-800);
+    background-color: var(--color-primary-50);
+}
+
+.input-group input:focus {
+    outline: none;
+    border: var(--color-primary-300);
+}
+
+.forgot-password {
+    width: 100%;
+    margin: 10px 0 10px auto;
+    text-align: right;
+}
+
+.forgot-password a {
+    color: var(--color-primary-300);
+    text-decoration: none;
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-semibold);
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+.login-button {
+    margin: 10px auto;
+    width: 100%;
+}
+
+.create-account {
+    margin-top: 1rem;    
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-semibold);
+}
+
+.create-account a {
+    color: var(--color-primary-300);
+    text-decoration: none;
+}
+
+.create-account a:hover {
+    text-decoration: underline;
+}
+
+/* -------------Checkbotton----------------- */
+.custom-checkbox-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: var(--color-primary-300); 
+    text-align: left;
+    margin: 10px auto;
+}
+
+.custom-checkbox {
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    margin-right: 8px; 
+    background-color: var(--color-neutral-0);
+    border: 0.5px solid var(--color-accent-300); 
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+
+/* Checkbox al estar marcado */
+.custom-checkbox:checked {
+    background-color: rgba(207,147,221, 1); 
+    border-color: var(--color-accent-300);
+}
+
+.custom-checkbox:hover {
+    background-color: rgba(207,147,221, 0.50); 
+}
+
+.custom-checkbox:focus {
+    border: 3px solid var(--color-accent-200); 
+    box-shadow: 
+        0px 0px 5px 0px rgba(127, 89, 248, 0.2),
+        0px 7px 10px 0px rgba(127, 89, 248, 0.14),
+        0px 2px 16px 0px rgba(127, 89, 248, 0.12);
+}
+
+.custom-checkbox:active {
+    background-color: rgba(207,147,221,1);
+}
+
