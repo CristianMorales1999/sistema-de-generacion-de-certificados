@@ -22,7 +22,10 @@ class Position extends Model
      *
      * @var array
      */
-    protected $fillable = ['name'];
+    protected $fillable = [
+        'name',
+        'is_internal_position'
+    ];
 
     /**
      * Relación uno a muchos con SignatureImage.

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('positions', function (Blueprint $table) {
             $table->id();
             $table->string('name', 255); // Crea la columna 'name' de tipo VARCHAR(255)
+            $table->boolean('is_internal_position')->default(false);
             $table->timestamps();
             // Agregar un índice en 'name' si se va a utilizar en consultas frecuentes
             $table->index('name');  // Agregar un índice en 'name' para mejorar las búsquedas

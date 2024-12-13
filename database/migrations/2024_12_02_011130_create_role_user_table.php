@@ -23,6 +23,7 @@ return new class extends Migration
                   ->onDelete('cascade')   // Eliminar en cascada
                   ->onUpdate('cascade');  // Actualizar en cascada
 
+            $table->boolean('is_active')->default(true);
             // Definir la clave primaria compuesta para 'user_id' y 'role_id'
             $table->primary(['user_id', 'role_id']);
 

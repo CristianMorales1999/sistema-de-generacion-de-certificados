@@ -75,16 +75,17 @@ class User extends Authenticatable
     /**
      * Relación muchos a muchos con el modelo Role.
      */
-    public function roles():BelongsToMany
+    public function roles(): BelongsToMany
     {
         return $this->belongsToMany(Role::class, 'role_user', 'user_id', 'role_id')
-                    ->withTimestamps();
+            ->withPivot(['is_active'])
+            ->withTimestamps();
     }
 
     /**
      * Relación uno a muchos con el modelo UserStatus.
      */
-    public function userStatus():BelongsTo
+    public function userStatus(): BelongsTo
     {
         return $this->belongsTo(UserStatus::class);
     }
@@ -92,12 +93,12 @@ class User extends Authenticatable
     /**
      * Relación uno a muchos con el modelo CertificationGroup.
      */
-    public function certificationGroupsCreated():HasMany
+    public function certificationGroupsCreated(): HasMany
     {
         return $this->hasMany(CertificationGroup::class, 'created_by_user_id');
     }
 
-    public function certificationGroupsCertified():HasMany
+    public function certificationGroupsCertified(): HasMany
     {
         return $this->hasMany(CertificationGroup::class, 'certified_by_user_id');
     }

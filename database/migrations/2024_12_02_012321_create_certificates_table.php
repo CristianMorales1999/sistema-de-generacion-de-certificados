@@ -33,7 +33,7 @@ return new class extends Migration
 
             // Definir la columna 'code' como VARCHAR(100) y 'is_validated' como BOOL
             $table->string('code', 100);
-            $table->boolean('is_validated')->nullable();
+            $table->boolean('is_validated')->default(false);
 
             // Crear las columnas 'created_at' y 'updated_at' como TIMESTAMP NULL
             $table->timestamps();

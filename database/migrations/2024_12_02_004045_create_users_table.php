@@ -28,7 +28,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable(); // Crea la columna 'email_verified_at' como TIMESTAMP y permite NULL
             $table->string('password'); // Crea la columna 'password' como VARCHAR(255)
             $table->rememberToken(); // Crea la columna 'remember_token' como VARCHAR(255) y permite NULL
-            $table->boolean('is_validated')->nullable(); // Crea la columna 'is_validated' como BOOL y permite NULL
+            $table->boolean('is_validated')->default(false); // Crea la columna 'is_validated' como BOOL y permite NULL
             $table->string('profile_image_url', 300)->nullable(); // Crea la columna 'profile_image_url' como VARCHAR(300) y permite NULL            
             $table->timestamps();
         });

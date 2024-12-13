@@ -24,7 +24,7 @@ return new class extends Migration
 
             $table->date('start_date')->nullable(); // Crea la columna 'start_date' como DATE
             $table->date('end_date')->nullable(); // Crea la columna 'end_date' como DATE y permite valores NULL
-            $table->boolean('is_activated')->nullable(); // Crea la columna 'is_activated' como BOOL y permite valores NULL
+            $table->boolean('is_active')->default(true); // Crea la columna 'is_activated' como BOOL y permite valores NULL
             $table->timestamps(); // Crea las columnas 'created_at' y 'updated_at' como TIMESTAMP NULL
 
             // Agregar índice compuesto en 'person_id' y 'area_id' para optimizar consultas

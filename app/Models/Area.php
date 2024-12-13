@@ -53,7 +53,7 @@ class Area extends Model
     public function people():BelongsToMany
     {
         return $this->belongsToMany(Person::class, 'area_person', 'area_id', 'person_id')
-                    ->withPivot(['start_date', 'end_date', 'is_activated'])
+                    ->withPivot(['start_date', 'end_date', 'is_active'])
                     ->withTimestamps();
     }
 }
