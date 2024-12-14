@@ -12,6 +12,11 @@
     <link rel="stylesheet" href="{{ asset('css/common-styles/typography.css') }}">
     <link rel="stylesheet" href="{{ asset('css/common-styles/color-palette.css') }}">
 
+    <!--Unico agregado diferente que esta presente solo en create-group.html -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <!---->
+
     <!-- PARA TAILWIND -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.0.0/dist/tailwind.min.css" rel="stylesheet">
 
