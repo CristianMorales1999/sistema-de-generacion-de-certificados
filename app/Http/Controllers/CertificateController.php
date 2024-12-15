@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Certificate;
 use Illuminate\Http\Request;
 
 class CertificateController extends Controller
@@ -11,7 +12,32 @@ class CertificateController extends Controller
      */
     public function index()
     {
-        return view('administrator.certificates.index');
+        /*ID	
+        Código	
+        Titular	
+        Grupo	
+        Fecha de emisión	
+        Estado
+        */
+        $filtered_certificates = Certificate::with([
+            'certificateStatus',
+            'person',
+            'certificationGroup'
+        ])->get();
+
+        // Mapear los datos a la estructura requerida
+        $certificates = $filtered_certificates->map(function ($certificates) {
+            return [
+                'id' => $certificates->id,
+                'code'=>$certificates->code,
+                'titular' => $certificates->person->first_name." ".$certificates->person->last_name,
+                'group' => $certificates->certificationGroup->name,
+                'issue_date' => $certificates->certificationGroup->issue_date,
+                'status' => $certificates->certificateStatus->name
+            ];
+        });
+
+        return view('administrator.certificates.index',compact('certificates'));
     }
 
     /**
