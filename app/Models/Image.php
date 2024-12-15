@@ -33,7 +33,7 @@ class Image extends Model
     /**
      * Relación muchos a uno con ImageStatus.
      */
-    public function status(): BelongsTo
+    public function imageStatus(): BelongsTo
     {
         return $this->belongsTo(ImageStatus::class, 'image_status_id');
     }
@@ -41,7 +41,7 @@ class Image extends Model
     /**
      * Relación muchos a uno con ImageType.
      */
-    public function type(): BelongsTo
+    public function imageType(): BelongsTo
     {
         return $this->belongsTo(ImageType::class, 'image_type_id');
     }
