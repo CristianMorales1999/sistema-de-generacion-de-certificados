@@ -9,17 +9,7 @@
 
         <div class="dashboard-container">
             <!-- Menú lateral -->
-            <aside class="sidebar">
-                <ul>
-                    <li><a href="/admin/admin-dashboard.html">Dashboard</a></li>
-                    <li><a href="/admin/certificate.html">Certificados</a></li>
-                    <li><a href="/admin/groups.html">Grupos</a></li>
-                    <li><a href="/admin/people.html">Personas</a></li>
-                    <li class="active"><a href="/admin/users.html">Usuarios</a></li>
-                    <li><a href="/admin/templates.html">Plantillas</a></li>
-                    <li><a href="/admin/logos.html">Logos</a></li>
-                </ul>
-            </aside>
+            <x-sidebar />
 
             <!-- Contenido principal -->
             <section class="dashboard-content">

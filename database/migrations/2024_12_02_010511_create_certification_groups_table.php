@@ -40,6 +40,7 @@ return new class extends Migration
             $table->text('description')->nullable(); // Crea la columna 'description' como TEXT y permite NULL
             $table->date('start_date')->nullable(); // Crea la columna 'start_date' como DATE y permite NULL
             $table->date('end_date')->nullable(); // Crea la columna 'end_date' como DATE y permite NULL
+            $table->date('issue_date');
             $table->boolean('is_validated')->default(false); // Crea la columna 'is_validated' como BOOL y permite NULL
             $table->timestamps(); // Crea las columnas 'created_at' y 'updated_at' como TIMESTAMP NULL
         });

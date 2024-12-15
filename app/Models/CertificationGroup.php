@@ -33,6 +33,7 @@ class CertificationGroup extends Model
         'description',
         'start_date',
         'end_date',
+        'issue_date',//Nuevo campo para fecha de emision
         'is_validated',
     ];
 

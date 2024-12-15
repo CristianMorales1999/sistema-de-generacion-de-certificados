@@ -8,18 +8,8 @@
     <div class="main-container" style="background-color: var(--color-primary-50);">
 
         <div class="dashboard-container">
-            <!-- Menú lateral -->
-            <aside class="sidebar">
-                <ul>
-                    <li><a href="/admin/admin-dashboard.html">Dashboard</a></li>
-                    <li><a href="/admin/certificate.html">Certificados</a></li>
-                    <li><a href="/admin/groups.html">Grupos</a></li>
-                    <li><a href="/admin/people.html">Personas</a></li>
-                    <li class="active"><a href="/admin/users.html">Usuarios</a></li>
-                    <li><a href="/admin/templates.html">Plantillas</a></li>
-                    <li><a href="/admin/logos.html">Logos</a></li>
-                </ul>
-            </aside>
+            
+            <x-sidebar />
 
             <!-- Contenido principal -->
             <section class="dashboard-content">
@@ -127,6 +117,6 @@
 @endpush
 
 {{--Este archivo .js lo comento por mientras para que no jala la data ficticia definida en el archivo y asi poder usar la data que capturo aqui de la base de datos mediante los modelos--}}
-@push('scripts')
+{{-- @push('scripts')
     @vite('resources/js/administrator/users-table.js')
-@endpush
+@endpush --}}
