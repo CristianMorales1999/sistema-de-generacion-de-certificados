@@ -26,6 +26,18 @@
                                     <input type="text" id="search" placeholder="Search...">
                                 </div>
                             </div>
+                            <!--Acciones-->
+                            <div class="action-buttons">
+                                <a href="#" class="button-action btn-small btn-outline">
+                                    <img src="{{ asset('images/icons/icon-plus.svg') }}" alt="Añadir registro">
+                                    Añadir registro
+                                </a>
+                                <a href="#" class="button-action btn-small btn-filled">
+                                    <img src="{{ asset('images/icons/icon-upload.svg') }}" alt="Cargar archivo">
+                                    Cargar archivo
+                                </a>
+                            </div>
+                            <!--Fin Acciones-->
                         </div>
                         <table>
                             <thead>
