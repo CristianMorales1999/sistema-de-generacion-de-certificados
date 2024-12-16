@@ -56,7 +56,14 @@
                                         </td>
                                         <td>{{$logo['id'] }}</td>
                                         <td>{{$logo['name'] }}</td>
-                                        <td>{{$logo['image']}}</td>
+                                        <td>
+                                            @if ($logo['image'])
+                                                <img src="{{ $logo['image'] }}" alt="Firma"
+                                                    style="width:50px; height:auto;">
+                                            @else
+                                                Sin Foto
+                                            @endif
+                                        </td>
                                         <td>{{$logo['status'] }}</td>
                                     </tr>
                                 @endforeach

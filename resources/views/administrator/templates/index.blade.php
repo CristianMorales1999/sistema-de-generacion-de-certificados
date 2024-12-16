@@ -54,7 +54,14 @@
                                         </td>
                                         <td>{{$template['id'] }}</td>
                                         <td>{{$template['name'] }}</td>
-                                        <td>{{$template['image']}}</td>
+                                        <td>
+                                            @if ($template['image'])
+                                                <img src="{{ $template['image'] }}" alt="Firma"
+                                                    style="width:50px; height:auto;">
+                                            @else
+                                                Sin Foto
+                                            @endif
+                                        </td>
                                         <td>{{$template['status'] }}</td>
                                     </tr>
                                 @endforeach
