@@ -62,7 +62,9 @@
 
     <!-- Pasar los datos desde PHP a JavaScript -->
     <script>
-        window.chartLabels = @json($chartLabels);  // Las etiquetas
-        window.chartData = @json($chartData);      // Los datos
+        const certificateData={
+          labels: @json($chartLabels),// Las etiquetas
+          values: @json($chartValues)// los datos
+        };
     </script>
 @endpush

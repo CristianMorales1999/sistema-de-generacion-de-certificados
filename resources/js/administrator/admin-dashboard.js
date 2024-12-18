@@ -7,11 +7,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const certificadosChart = new Chart(ctx, {
       type: "line", // Tipo de gráfico
       data: {
-        labels: window.chartLabels,  // Usar las etiquetas pasadas desde el controlador
+        labels: certificateData.labels,  // Usar las etiquetas pasadas desde el controlador
         datasets: [
           {
             label: "Certificados",
-            data: window.chartData, // Usar los datos pasados desde el controlador
+            data: certificateData.values, // Usar los datos pasados desde el controlador
             borderColor: "#7F59F8", // Color de la línea
             fill: false, // Sin relleno debajo de la línea
             tension: 0.3, // Suavidad de la curva

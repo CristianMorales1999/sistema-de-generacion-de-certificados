@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdministratorController;
 use App\Http\Controllers\CertificateController;
+use App\Http\Controllers\CertificateValidationController;
 use App\Http\Controllers\CertificationGruopController;
 use App\Http\Controllers\LogoController;
 use App\Http\Controllers\PersonController;
@@ -19,3 +20,5 @@ Route::get('/administrator/templates',[TemplateController::class,'index'])->name
 Route::get('/administrator/users',[UserController::class,'index'])->name('users.index');
 Route::get('/administrator/dashboard',[AdministratorController::class,'index'])->name('administrator.index');
 
+Route::get('/certificates/validate', [CertificateValidationController::class, 'showValidationForm'])->name('certificates.validate');
+Route::post('/certificates/validate', [CertificateValidationController::class, 'validateCertificate'])->name('certificates.validate.process');

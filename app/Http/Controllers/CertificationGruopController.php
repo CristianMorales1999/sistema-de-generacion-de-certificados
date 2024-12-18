@@ -47,8 +47,10 @@ class CertificationGruopController extends Controller
                 'description' => $group->description,
                 'start_date' => $group->start_date,
                 'end_date' => $group->end_date,
-                'createdBy' => $group->createdBy->person->first_name." ".$group->createdBy->person->last_name,
-                'certifiedBy' => $group->certifiedBy->person->first_name." ".$group->certifiedBy->person->last_name,
+                // Verificación si la relación 'createdBy' y 'person' existen
+                'createdBy' => $group->createdBy && $group->createdBy->person ? $group->createdBy->person->first_name . " " . $group->createdBy->person->last_name : 'Sin nombre',
+                // Verificación si la relación 'certifiedBy' y 'person' existen
+                'certifiedBy' => $group->certifiedBy && $group->certifiedBy->person ? $group->certifiedBy->person->first_name . " " . $group->certifiedBy->person->last_name : 'Sin nombre',
 
                 // Personas dueñas de las firmas (iterar sobre las imágenes de firmas)
                 'signatories' => $group->signatureImages->map(function ($signatureImage) {
@@ -58,11 +60,11 @@ class CertificationGruopController extends Controller
                 // Imágenes de tipo 'Plantilla' (iterar sobre la colección de imágenes)
                 'templates' => $group->images->map(function ($image) {
                     return $image->url;
-                })//->implode(', ') // Unir los nombres de las imágenes con coma si hay varias
+                }) //->implode(', ') // Unir los nombres de las imágenes con coma si hay varias
             ];
         });
 
-        return view('administrator.groups.index',compact('groups'));
+        return view('administrator.groups.index', compact('groups'));
     }
 
     /**

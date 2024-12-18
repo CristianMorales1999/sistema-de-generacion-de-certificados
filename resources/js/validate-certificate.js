@@ -1,66 +1,22 @@
-// Simulador de búsqueda en la base de datos
-const mockDatabase = {
-  "D2I4-2ED3-283F-27SA": {
-    firstName: "Juan",
-    lastName: "Pérez",
-    certification: "Desarrollo Web",
-    issueDate: "2024-11-23",
-  },
-};
+document.addEventListener('DOMContentLoaded', function() {
+  // Verifica si hay datos del certificado pasados desde la sesión
+  const certificateData = window.certificateData;
 
-const searchBox = document.getElementById("search");
-const statusMessage = document.getElementById("statusMessage");
-const modal = document.getElementById("modal");
-const closeModalButton = document.getElementById("close-modal");
+  if (certificateData) {
+      const code = Object.keys(certificateData)[0];
 
-// Detalles del modal
-const firstNameField = document.getElementById("firstName");
-const lastNameField = document.getElementById("lastName");
-const certificationField = document.getElementById("certification");
-const issueDateField = document.getElementById("issueDate");
+      // Asignar los datos al modal
+      document.getElementById("firstName").textContent = certificateData[code].firstName;
+      document.getElementById("lastName").textContent = certificateData[code].lastName;
+      document.getElementById("certification").textContent = `Certificación por: ${certificateData[code].certification}`;
+      document.getElementById("issueDate").textContent = `Fecha de emisión: ${certificateData[code].issueDate}`;
 
-// Validar código de certificado
-searchBox.addEventListener("keyup", (e) => {
-  if (e.key === "Enter") {
-    e.preventDefault(); // Evita la recarga de página
-    const code = searchBox.value.trim();
-    const data = mockDatabase[code];
-
-    if (data) {
-      // Certificado encontrado
-      statusMessage.textContent = "Certificado encontrado";
-      statusMessage.className = "status-message status-found";
-
-      const detailsLink = document.createElement("span");
-      detailsLink.textContent = "Ver detalles de certificado";
-      detailsLink.className = "action-link";
-      detailsLink.addEventListener("click", () => openModal(data));
-
-      // Reemplazar cualquier mensaje anterior con el nuevo
-      statusMessage.innerHTML = ""; // Limpia contenido previo
-      statusMessage.appendChild(
-        document.createTextNode("Certificado encontrado")
-      );
-      statusMessage.appendChild(detailsLink);
-    } else {
-      // Certificado no encontrado
-      statusMessage.textContent = "Certificado no existe";
-      statusMessage.className = "status-message status-not-found";
-    }
+      // Mostrar el modal
+      document.getElementById("modal").classList.remove("hidden");
   }
-});
 
-// Abrir modal con datos
-function openModal(data) {
-  firstNameField.textContent = data.firstName;
-  lastNameField.textContent = data.lastName;
-  certificationField.textContent = `Certificación por: ${data.certification}`;
-  issueDateField.textContent = `Fecha de emisión: ${data.issueDate}`;
-
-  modal.classList.remove("hidden");
-}
-
-// Cerrar modal
-closeModalButton.addEventListener("click", () => {
-  modal.classList.add("hidden");
+  // Cerrar el modal cuando se haga clic en el botón de cerrar
+  document.getElementById("close-modal").addEventListener("click", function() {
+      document.getElementById("modal").classList.add("hidden");
+  });
 });

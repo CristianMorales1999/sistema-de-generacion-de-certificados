@@ -54,8 +54,8 @@
                                     <th>Descripción</th>
                                     <th>Fecha de inicio</th>
                                     <th>Fecha de fin</th>
-                                    <th>Generador de certificados</th>
                                     <th>Creador del grupo</th>
+                                    <th>Generador de certificados</th>
                                     <th>Firmante 1</th>
                                     <th>Firmante 2</th>
                                     <th>Firmante 3</th>

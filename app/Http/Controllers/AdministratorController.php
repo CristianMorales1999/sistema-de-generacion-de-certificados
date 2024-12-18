@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Certificate;
 use App\Models\CertificationGroup;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class AdministratorController extends Controller
@@ -26,25 +27,27 @@ class AdministratorController extends Controller
             ->get();
         $totalValidatedGroups = $validatedGroups->count();
 
+        //
         $validatedCertificates = Certificate::whereHas('certificateStatus', function ($query) {
             $query->where('name', 'validado');
         })
-            ->orderBy('created_at', 'asc')
-            ->get();
-
-        // Procesar los datos de los certificados validados para el gráfico
-        $chartLabels = [];
-        $chartData = [];
-
-        // Agrupar por mes y año
-        $validatedCertificates->groupBy(function ($date) {
-            return \Carbon\Carbon::parse($date->created_at)->format('M Y'); // Mes y año
-        })->each(function ($group, $key) use (&$chartLabels, &$chartData) {
-            $chartLabels[] = $key; // Etiqueta del gráfico (Mes Año)
-            $chartData[] = $group->count(); // Cantidad de certificados validados
-        });
-
-        $totalValidatedCertificates = $validatedCertificates->count();
+        ->orderBy('created_at', 'asc')
+        ->get(); // Obtienes todos los certificados validados
+        
+        $totalValidatedCertificates = $validatedCertificates->count(); // Contar certificados validados
+        
+        $chartData = Certificate::whereHas('certificateStatus', function ($query) {
+            $query->where('name', 'validado');
+        })
+        ->selectRaw('DATE_FORMAT(created_at, "%b %Y") as month, COUNT(*) as count') // Agregar columnas: Mes (formateado) y Conteo
+        ->groupBy('month') // Agrupar por mes
+        ->orderByRaw('MIN(created_at) asc') // Ordenar por la fecha más temprana del grupo
+        ->get(); // Obtienes los datos agrupados
+        
+        // Extraer etiquetas (labels) y datos para el gráfico desde $chartData
+        $chartLabels = $chartData->pluck('month'); // ["Ene 2024", "Feb 2024", ...]
+        $chartValues = $chartData->pluck('count'); // [100, 200, ...]
+        //
 
         $pendingCertificates = Certificate::whereHas('certificateStatus', function ($query) {
             $query->where('name', 'pendiente');
@@ -55,7 +58,7 @@ class AdministratorController extends Controller
 
         //Para filtrar entre un rango de fechaas puedo usar '->whereBetween('created_at', ['2024-01-01', '2024-12-31'])'
 
-        return view('administrator.index', compact('activeUsers', 'totalActiveUsers', 'validatedGroups', 'totalValidatedGroups', 'validatedCertificates', 'totalValidatedCertificates', 'pendingCertificates', 'totalPendingCertificates','chartLabels', 'chartData'));
+        return view('administrator.index', compact('activeUsers', 'totalActiveUsers', 'validatedGroups', 'totalValidatedGroups', 'validatedCertificates', 'totalValidatedCertificates', 'pendingCertificates', 'totalPendingCertificates','chartLabels', 'chartValues'));
     }
 
     /**
