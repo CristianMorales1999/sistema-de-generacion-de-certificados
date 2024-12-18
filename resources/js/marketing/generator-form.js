@@ -91,3 +91,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+
+document.querySelectorAll('.search-dropdown-options li').forEach((option) => {
+  option.addEventListener('click', function () {
+      const dropdown = this.closest('.search-dropdown');
+      const button = dropdown.querySelector('.search-dropdown-button .search-dropdown-text-selected');
+      const hiddenInput = dropdown.nextElementSibling;
+
+      // Actualizar el texto del botón
+      button.textContent = this.textContent;
+
+      // Actualizar el valor del campo oculto
+      hiddenInput.value = this.dataset.value;
+  });
+});

@@ -3,7 +3,7 @@
 @section('title','SEDICERT')
 
 @section('content')
-    <main class="main-content">
+    <main>
         <div class="content-wrapper" style="background-color: var(--color-primary-50);">
             <h1 class="h1">
                 GENERADOR DE CERTIFICADOS
@@ -14,7 +14,7 @@
             </p>
 
             <div class="button-container" style="margin: 30px auto;">
-                <a href="#" class="button btn-large btn-filled">
+                <a href="{{ route('certificates.generation') }}" class="button btn-large btn-filled">
                     Generar certificados
                 </a>
                 <a href="{{ route('certificates.validate.process') }}" class="button btn-large btn-outline">

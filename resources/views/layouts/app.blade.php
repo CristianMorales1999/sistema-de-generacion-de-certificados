@@ -37,7 +37,7 @@
 <body style="background-color: var(--color-primary-50)">
     @if (!Auth::check())
         <header id="header" class="container-fluid">
-            <a href="#" class="logo">
+            <a href="/" class="logo">
                 <img src="{{ asset('images/logoDeSedipro.svg') }}" alt="Logo de SEDIPRO">
             </a>
             <div class="button-container">

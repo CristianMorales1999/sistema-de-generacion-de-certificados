@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdministratorController;
 use App\Http\Controllers\CertificateController;
+use App\Http\Controllers\CertificateGenerationController;
 use App\Http\Controllers\CertificateValidationController;
 use App\Http\Controllers\CertificationGruopController;
 use App\Http\Controllers\LogoController;
@@ -22,3 +23,8 @@ Route::get('/administrator/dashboard',[AdministratorController::class,'index'])-
 
 Route::get('/certificates/validate', [CertificateValidationController::class, 'showValidationForm'])->name('certificates.validate');
 Route::post('/certificates/validate', [CertificateValidationController::class, 'validateCertificate'])->name('certificates.validate.process');
+
+Route::get('/certificates/generation', [CertificateGenerationController::class, 'showGenerationForm'])->name('certificates.generation');
+
+Route::post('/certificates/generatePDF', [CertificateGenerationController::class, 'store'])->name('certificates.generatePDF');
+
