@@ -17,7 +17,7 @@
                 <a href="#" class="button btn-large btn-filled">
                     Generar certificados
                 </a>
-                <a href="/validar-certificado.html" class="button btn-large btn-outline">
+                <a href="{{ route('certificates.validate.process') }}" class="button btn-large btn-outline">
                     Validar certificados
                 </a>
             </div>

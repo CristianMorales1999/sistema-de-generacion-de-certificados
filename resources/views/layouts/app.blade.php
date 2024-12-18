@@ -34,7 +34,7 @@
 
 </head>
 
-<body>
+<body style="background-color: var(--color-primary-50)">
     @if (!Auth::check())
         <header id="header" class="container-fluid">
             <a href="#" class="logo">
@@ -60,9 +60,7 @@
         </header>
     @endif
 
-    <main class="main-content">
-        @yield('content')
-    </main>
+    @yield('content')
 
     <footer class="footer">
 

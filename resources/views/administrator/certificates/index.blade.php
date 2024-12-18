@@ -5,81 +5,86 @@
 
 
 @section('content')
-    <div class="main-container" style="background-color: var(--color-primary-50);">
+    <main>
+        <div class="main-container" style="background-color: var(--color-primary-50);">
 
-        <div class="dashboard-container">
-            <!-- Menú lateral -->
-            <x-sidebar />
+            <div class="dashboard-container">
+                <!-- Menú lateral -->
+                <x-sidebar />
 
-            <!-- Contenido principal -->
-            <section class="dashboard-content">
-                <h2 class="h3">Certificados</h2>
+                <!-- Contenido principal -->
+                <section class="dashboard-content">
+                    <h2 class="h3">Certificados</h2>
 
 
-                <!-- ============RESPONSIVE TABLE============ -->
+                    <!-- ============RESPONSIVE TABLE============ -->
 
-                <div class="general-table" style="width: 100%;">
-                    <div class="table-container">
-                        <div class="table-header">
-                            <div class="search-container">
-                                <button class="filter-button">
-                                    <img src="{{ asset('images/icons/icon-filter.svg') }}" alt="Filtro" class="filter-icon">
-                                </button>
-                                <div class="search-box">
-                                    <img src="{{ asset('images/icons/icon-search.svg') }}" alt="Buscar" class="search-icon">
-                                    <input type="text" id="search" placeholder="Search...">
+                    <div class="general-table" style="width: 100%;">
+                        <div class="table-container">
+                            <div class="table-header">
+                                <div class="search-container">
+                                    <button class="filter-button">
+                                        <img src="{{ asset('images/icons/icon-filter.svg') }}" alt="Filtro"
+                                            class="filter-icon">
+                                    </button>
+                                    <div class="search-box">
+                                        <img src="{{ asset('images/icons/icon-search.svg') }}" alt="Buscar"
+                                            class="search-icon">
+                                        <input type="text" id="search" placeholder="Search...">
+                                    </div>
                                 </div>
+                                <!--Acciones-->
+                                <div class="action-buttons">
+                                    <a href="#" class="button-action btn-small btn-outline">
+                                        <img src="{{ asset('images/icons/icon-plus.svg') }}" alt="Añadir registro">
+                                        Añadir registro
+                                    </a>
+                                    <a href="#" class="button-action btn-small btn-filled">
+                                        <img src="{{ asset('images/icons/icon-upload.svg') }}" alt="Cargar archivo">
+                                        Cargar archivo
+                                    </a>
+                                </div>
+                                <!--Fin Acciones-->
                             </div>
-                            <!--Acciones-->
-                            <div class="action-buttons">
-                                <a href="#" class="button-action btn-small btn-outline">
-                                    <img src="{{ asset('images/icons/icon-plus.svg') }}" alt="Añadir registro">
-                                    Añadir registro
-                                </a>
-                                <a href="#" class="button-action btn-small btn-filled">
-                                    <img src="{{ asset('images/icons/icon-upload.svg') }}" alt="Cargar archivo">
-                                    Cargar archivo
-                                </a>
-                            </div>
-                            <!--Fin Acciones-->
-                        </div>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th><input type="checkbox" id="select-all"></th>
-                                    <th>ID</th>
-                                    <th>Código</th>
-                                    <th>Titular</th>
-                                    <th>Grupo de Certificación</th>
-                                    <th>Fecha de emisión</th>
-                                    <th>Estado</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($certificates as $certificate)
+                            <table>
+                                <thead>
                                     <tr>
-                                        <td><input type="checkbox" class="row-checkbox" data-id="{{ $certificate['id'] }}">
-                                        </td>
-                                        <td>{{$certificate['id'] }}</td>
-                                        <td>{{$certificate['code'] }}</td>
-                                        <td>{{$certificate['titular']}}</td>
-                                        <td>{{$certificate['group'] }}</td>
-                                        <td>{{$certificate['issue_date']}}</td>
-                                        <td>{{$certificate['status'] }}</td>
+                                        <th><input type="checkbox" id="select-all"></th>
+                                        <th>ID</th>
+                                        <th>Código</th>
+                                        <th>Titular</th>
+                                        <th>Grupo de Certificación</th>
+                                        <th>Fecha de emisión</th>
+                                        <th>Estado</th>
                                     </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                        <div class="pagination">
-                            <span id="rows-info">1-10 de 20</span>
-                            <button class="btn-pagination" id="prev-page" disabled>&laquo; Anterior</button>
-                            <button class="btn-pagination" id="next-page">Siguiente &raquo;</button>
+                                </thead>
+                                <tbody>
+                                    @foreach ($certificates as $certificate)
+                                        <tr>
+                                            <td><input type="checkbox" class="row-checkbox"
+                                                    data-id="{{ $certificate['id'] }}">
+                                            </td>
+                                            <td>{{ $certificate['id'] }}</td>
+                                            <td>{{ $certificate['code'] }}</td>
+                                            <td>{{ $certificate['titular'] }}</td>
+                                            <td>{{ $certificate['group'] }}</td>
+                                            <td>{{ $certificate['issue_date'] }}</td>
+                                            <td>{{ $certificate['status'] }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            <div class="pagination">
+                                <span id="rows-info">1-10 de 20</span>
+                                <button class="btn-pagination" id="prev-page" disabled>&laquo; Anterior</button>
+                                <button class="btn-pagination" id="next-page">Siguiente &raquo;</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            </div>
         </div>
-    </div>
+    </main>
 @endsection
 
 @push('styles')

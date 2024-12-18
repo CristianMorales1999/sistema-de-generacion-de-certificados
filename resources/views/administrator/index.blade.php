@@ -5,49 +5,49 @@
 
 
 @section('content')
+    <main>
+        <div class="main-container" style="background-color: var(--color-primary-50);">
 
-<div class="main-container" style="background-color: var(--color-primary-50);">
+            <div class="dashboard-container">
+                <!-- Menú lateral -->
+                <x-sidebar />
 
-    <div class="dashboard-container">
-      <!-- Menú lateral -->
-      <x-sidebar />
+                <!-- Contenido principal -->
+                <section class="dashboard-content">
+                    <h2 class="h3">Dashboard</h2>
+                    <div class="stats">
+                        <div class="stat-box">
+                            <i class="fas fa-user"></i>
+                            <h3>Usuarios</h3>
+                            <p>{{ $totalActiveUsers }}</p>
+                        </div>
+                        <div class="stat-box">
+                            <i class="fas fa-box"></i>
+                            <h3>Grupos</h3>
+                            <p>{{ $totalValidatedGroups }}</p>
+                        </div>
+                        <div class="stat-box">
+                            <i class="fas fa-chart-line"></i>
+                            <h3>Certificados</h3>
+                            <p>{{ $totalValidatedCertificates }}</p>
+                        </div>
+                        <div class="stat-box">
+                            <i class="fas fa-clock"></i>
+                            <h3>Pendientes</h3>
+                            <p>{{ $totalPendingCertificates }}</p>
+                        </div>
+                    </div>
 
-      <!-- Contenido principal -->
-      <section class="dashboard-content">
-        <h2 class="h3">Dashboard</h2>
-        <div class="stats">
-          <div class="stat-box">
-            <i class="fas fa-user"></i>
-            <h3>Usuarios</h3>
-            <p>{{$totalActiveUsers}}</p>
-          </div>
-          <div class="stat-box">
-            <i class="fas fa-box"></i>
-            <h3>Grupos</h3>
-            <p>{{$totalValidatedGroups}}</p>
-          </div>
-          <div class="stat-box">
-            <i class="fas fa-chart-line"></i>
-            <h3>Certificados</h3>
-            <p>{{$totalValidatedCertificates}}</p>
-          </div>
-          <div class="stat-box">
-            <i class="fas fa-clock"></i>
-            <h3>Pendientes</h3>
-            <p>{{$totalPendingCertificates}}</p>
-          </div>
+                    <!-- Gráfico -->
+                    <div class="chart">
+                        <h3>Certificados</h3>
+                        <canvas id="certificadosChart"></canvas>
+                    </div>
+                </section>
+            </div>
+
         </div>
-
-        <!-- Gráfico -->
-        <div class="chart">
-          <h3>Certificados</h3>
-          <canvas id="certificadosChart"></canvas>
-        </div>
-      </section>
-    </div>
-
-  </div>
-
+    </main>
 @endsection
 
 @push('styles')
@@ -62,9 +62,9 @@
 
     <!-- Pasar los datos desde PHP a JavaScript -->
     <script>
-        const certificateData={
-          labels: @json($chartLabels),// Las etiquetas
-          values: @json($chartValues)// los datos
+        const certificateData = {
+            labels: @json($chartLabels), // Las etiquetas
+            values: @json($chartValues) // los datos
         };
     </script>
 @endpush
