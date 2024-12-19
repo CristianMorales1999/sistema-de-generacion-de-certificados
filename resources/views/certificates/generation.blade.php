@@ -164,7 +164,9 @@
                         <button type="submit" class="button btn-large btn-filled">Guardar</button>
 
                         <!-- Botón para limpiar los campos -->
-                        <button type="reset" class="button btn-large btn-outline">Limpiar</button>
+                        <a href="{{ route('certificates.generation') }}" class="button btn-large btn-filled">
+                            Limpiar
+                        </a>
                     </div>
                     <!-- FIN BOTONES -->
 

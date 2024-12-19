@@ -47,6 +47,52 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
+  /**
+   * 
+   */
+  const form = document.querySelector('.form-general-data');
+    const templateInput = document.querySelector('#template_id');
+    const groupInput = document.querySelector('#group_id');
+    const signatureInputs = document.querySelectorAll('.signature-input');
+    const roleInputs = document.querySelectorAll('.role-input');
+    const submitButton = document.querySelector('.button[type="submit"]');
+    
+    form.addEventListener('submit', function(e) {
+        // Validar que la plantilla esté seleccionada
+        if (!templateInput.value) {
+            e.preventDefault(); // Evita el envío del formulario
+            alert('Por favor, selecciona una plantilla.');
+            return;
+        }
+
+        // Validar que el grupo esté seleccionado
+        if (!groupInput.value) {
+            e.preventDefault(); // Evita el envío del formulario
+            alert('Por favor, selecciona un grupo.');
+            return;
+        }
+
+        // Validar que al menos 2 firmas hayan sido seleccionadas
+        const selectedSignatures = Array.from(signatureInputs).filter(input => input.value);
+        const selectedRoles = Array.from(roleInputs).filter(input => input.value);
+        
+        if (selectedSignatures.length < 2) {
+            e.preventDefault(); // Evita el envío del formulario
+            alert('Por favor, selecciona al menos 2 firmas.');
+            return;
+        }
+
+        // Validar que para cada firma también haya un rol asignado
+        if (selectedSignatures.length !== selectedRoles.length) {
+            e.preventDefault();
+            alert('Cada firma debe tener un rol asignado.');
+            return;
+        }
+    });
+  /**
+   * 
+   */
+
   searchDropdowns.forEach((searchDropdown) => {
     const searchDropdownButton = searchDropdown.querySelector(".search-dropdown-button");
     const searchDropdownMenu = searchDropdown.querySelector(".search-dropdown-menu");
