@@ -1,0 +1,202 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+}
+
+/* Para incluir el border y padding en el ancho y alto definidos en cada elemento */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background-color: var(--color-neutral-0);
+}
+
+/* ==================================POR REVISAR ==================================*/
+.table-text-title
+{
+    display: block;
+    margin-bottom: 20px;
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-semibold);
+}
+
+.general-table
+{ 
+  max-width: 100%;
+  min-height: 660px;
+  border-collapse: collapse;
+  margin: 0 auto;
+  background-color: var(--color-neutral-0);
+  box-shadow: 
+        0px 0px 5px 0px rgba(127, 89, 248, 0.2),
+        0px 7px 10px 0px rgba(127, 89, 248, 0.14),
+        0px 2px 16px 0px rgba(127, 89, 248, 0.12); 
+
+}
+/* Contenedor principal */
+.table-container {
+  max-width: 100%;
+  margin: auto;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Encabezado de la tabla */
+.table-header {
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: 65px;
+  align-items: center;
+  background-color: var(--color-primary-25);
+}
+
+
+/* **************FILTRO Y BUSQUEDA**************** */
+/* Contenedor para la barra de búsqueda con botón de filtro */
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-radius: 8px;
+  padding: 0.5rem;
+  width: 100%;
+  max-width: 300px;
+}
+
+/* Botón de filtro */
+.filter-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-neutral-0);
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 6px;
+  box-shadow: 
+    0px 0px 5px 0px rgba(127, 89, 248, 0.2),
+    0px 7px 10px 0px rgba(127, 89, 248, 0.14),
+    0px 2px 16px 0px rgba(127, 89, 248, 0.12); 
+}
+
+.filter-button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+.filter-icon {
+  width: 16px;
+  height: 16px;
+}
+
+
+/* Barra de búsqueda */
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-grow: 1; /* Para ocupar todo el espacio disponible */
+  background-color: #ffffff; /* Fondo blanco */
+  border-radius: 8px;
+  padding: 0.5rem 1rem; /* Espaciado interno */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra para visibilidad */
+  border: 1px solid rgba(127, 89, 248, 0.2); /* Borde suave */
+}
+
+/* Icono de búsqueda */
+.search-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Campo de entrada */
+.search-box input {
+  border: none;
+  outline: none;
+  flex-grow: 1;
+  font-size: 14px;
+  color: var(--color-neutral-900);
+  background-color: transparent; /* Para que el fondo dependa del contenedor */
+}
+
+
+/* *********************TABLA********************* */
+
+
+/* Tabla */
+table {
+  width: 100%;
+  min-height: 448px;
+  border-collapse: collapse;
+  border-spacing: 0; /* Asegúrate de que no haya espacio entre celdas */
+}
+
+thead th {
+  background-color: var(--color-primary-25);
+  height: 39px;
+  color: var(--color-neutral-500);
+  text-align: left;
+  padding: 0.5rem;
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-regular);
+  border-bottom: 2px solid #ddd; /* Consistencia con tbody */
+}
+
+tbody td {
+  padding: 0.5rem; /* Igual que en thead */
+  height: 64px;
+  color: var(--color-neutral-700);
+  border-bottom: 1px solid #ddd;
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-medium);
+}
+
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Paginación */
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 1rem;
+}
+
+.pagination .btn-pagination {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--color-neutral-500);
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.pagination .btn-pagination:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+
+th:first-child,
+td:first-child {
+  text-align: center;
+  width: 50px;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.2); /* Ajusta el tamaño del checkbox si es necesario */
+  cursor: pointer;
+}

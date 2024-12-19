@@ -3,6 +3,7 @@
 @section('title', 'SEDICERT-VALIDATION')
 
 @section('content')
+<main>
     <div class="validate-container">
         <h2 class="title-text-validate-container">Validar certificado</h2>
         <form id="certificateForm" action="{{ route('certificates.validate.process') }}" method="POST">
@@ -53,10 +54,12 @@
             </div>
         </div>
     </div>
+</main>
 @endsection
 
 @push('styles')
     @vite('resources/css/common-styles/validate-certificate.css')
+    @vite('resources/css/common-styles/admin-dashboard-styles.css')
 @endpush
 
 @push('scripts')

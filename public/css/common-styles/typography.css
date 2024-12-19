@@ -1,0 +1,135 @@
+/* ==========Definicion de variables para tamaños y pesos de fuente==========*/
+:root
+{
+    --font-size-h1: 32px;
+    --font-size-h2: 28px;
+    --font-size-h3: 24px;
+    --font-size-h4: 20px;
+    --font-size-h5: 18px;
+    --font-size-h6: 16px;
+    --font-size-large: 18px;
+    --font-size-medium: 16px;
+    --font-size-small: 14px;
+    --font-size-extra-small: 12px;
+
+    --font-weight-bold:700;
+    --font-weight-semibold:600;
+    --font-weight-medium:500;
+    --font-weight-regular:400;
+    --font-weight-light:300;
+
+    /* Variables de margenes */
+    --margin-top-h1: 70px;
+    --margin-bottom-h1: 50px;
+    --margin-top-h2: 50px;
+    --margin-bottom-h2: 40px;
+    --margin-top-default: 20px;
+    --margin-bottom-default: 20px;
+}
+
+/* ==========Definicion de clases de estilo de tipografia ==========*/
+/* Encabezados */
+.h1
+{
+    font-size: var(--font-size-h1);
+    font-weight: var(--font-weight-bold);
+    margin: var(--margin-top-h1) auto var(--margin-bottom-h1);
+    text-align: center;
+}
+
+.h2
+{
+    font-size: var(--font-size-h2);
+    font-weight: var(--font-weight-semibold);
+    margin: var(--margin-top-h2) auto var(--margin-bottom-h2);
+    text-align: center;
+}
+
+.h3
+{
+    font-size: var(--font-size-h3);
+    font-size: var(--font-weight-semibold);
+    margin: var(--margin-top-default) auto var(--margin-bottom-default);
+}
+
+.h4
+{
+    font-size: var(--font-size-h4);
+    font-weight: var(--font-weight-medium);
+    margin: var(--margin-top-default) auto var(--margin-bottom-default);
+}
+
+.h5
+{
+    font-size: var(--font-size-h5);
+    font-weight: var(--font-weight-regular);
+    margin: var(--margin-top-default) auto var(--margin-bottom-default);
+}
+
+.h6
+{
+    font-size: var(--font-size-h6);
+    font-weight: var(--font-weight-regular);
+    margin: var(--margin-top-default) auto var(--margin-bottom-default);
+}
+
+/* Convertir todo titulo en mayuscula */
+.h1, .h2, .h3, .h4, .h5, .h6
+{
+    text-transform: uppercase;
+}
+
+/* Texto normal */
+.text-large-semibold
+{
+    font-size: var(--font-size-large);
+    font-weight: var(--font-weight-semibold);
+    margin: var(--margin-top-default) auto var(--margin-bottom-default);
+}
+
+.text-large-medium
+{
+    font-size: var(--font-size-large);
+    font-weight: var(--font-weight-medium);
+    margin: var(--margin-top-default) auto var(--margin-bottom-default);
+}
+.text-medium-medium
+{
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-medium);
+    margin: var(--margin-top-default) auto var(--margin-bottom-default);
+}
+.text-medium-semibold
+{
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-semibold);
+    margin: var(--margin-top-default) auto var(--margin-bottom-default);
+}
+
+.text-medium-regular
+{
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-regular);
+    margin: var(--margin-top-default) auto var(--margin-bottom-default);
+}
+
+.text-small-semibold
+{
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-semibold);
+    margin: var(--margin-top-default) auto var(--margin-bottom-default);
+}
+
+.text-small-medium
+{
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-medium);
+    margin: var(--margin-top-default) auto var(--margin-bottom-default);
+}
+
+.text-extra-small-light
+{
+    font-size: var(--font-size-extra-small);
+    font-weight: var(--font-weight-light);
+    margin: var(--margin-top-default) auto var(--margin-bottom-default);
+}

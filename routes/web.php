@@ -28,3 +28,5 @@ Route::get('/certificates/generation', [CertificateGenerationController::class, 
 
 Route::post('/certificates/generatePDF', [CertificateGenerationController::class, 'store'])->name('certificates.generatePDF');
 
+Route::view('/certificates/templateCertificate', 'certificates.templateCertificate')->name('certificates.templateCertificate');
+

@@ -6,14 +6,6 @@
     padding: 40px 79px 70px;
 }
 
-main {
-  min-height: calc(100vh - 103px);  /* Revisa y modifica 103px si tu header mide diferente */
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centrar horizontalmente */
-  justify-content: center; /* Centrar verticalmente */
-}
-
 /*==================Generacion de certificados================== */
 .certificate-generator-container 
 {

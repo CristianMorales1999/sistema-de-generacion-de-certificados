@@ -1,0 +1,240 @@
+/* *************POR REVISAR: TEXT INPUT ESTILO DROPDOWN************** */
+
+/* Contenedor del campo de texto */
+.text-input-container-modal {
+  width: 100%;
+  max-width: 320px;
+  margin: 0 0 24px;
+}
+
+/* Etiqueta del campo de texto */
+.text-input-title {
+  display: block;
+  margin-bottom: 20px;
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Contenedor del input con estilos */
+.text-input-wrapper {
+  width: 100%;
+  background-color: var(--color-neutral-0);
+  border: 1.5px solid var(--color-neutral-700);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0px 0px 5px 0px rgba(127, 89, 248, 0.2),
+    0px 7px 10px 0px rgba(127, 89, 248, 0.14),
+    0px 2px 16px 0px rgba(127, 89, 248, 0.12);
+  transition: background-color 0.3s, box-shadow 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+/* Input estilizado */
+.text-input {
+  border: none;
+  outline: none;
+  flex-grow: 1;
+  font-size: var(--font-size-medium);
+  color: var(--color-neutral-700);
+  background-color: transparent;
+}
+
+/* Placeholder estilizado */
+.text-input::placeholder {
+  color: var(--color-neutral-400);
+}
+
+/* Hover y focus */
+.text-input-wrapper:hover {
+  background-color: var(--color-primary-25);
+}
+
+.text-input-wrapper:focus-within {
+  box-shadow: 0px 0px 8px rgba(127, 89, 248, 0.4),
+    0px 10px 15px rgba(127, 89, 248, 0.2), 0px 4px 20px rgba(127, 89, 248, 0.1);
+  border-color: var(--color-primary-700);
+}
+
+/* ******************DATE BOX********************** */
+
+/* *************DATE INPUT ESTILO DROPDOWN************** */
+
+/* Contenedor del selector de fecha */
+.date-picker-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 4px;
+  font-family: Arial, sans-serif;
+}
+
+/* Etiqueta */
+.date-picker-container label {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+/* Contenedor de la entrada de fecha */
+.date-picker {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid var(--color-neutral-700);
+  border-radius: 12px;
+  padding: 12px;
+  gap: 12px;
+  background-color: var(--color-neutral-0);
+  box-shadow: 0px 0px 5px 0px rgba(127, 89, 248, 0.2),
+    0px 7px 10px 0px rgba(127, 89, 248, 0.14),
+    0px 2px 16px 0px rgba(127, 89, 248, 0.12);
+}
+
+/* Input de fecha */
+.date-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  flex-grow: 1;
+  appearance: none; /* Quita el ícono nativo */
+}
+
+/* Ocultar ícono nativo del calendario */
+.date-input::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+}
+
+/* Ícono del calendario */
+.date-input-icon {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+/* Texto de formato de fecha */
+.date-format {
+  font-size: 12px;
+  color: var(--color-neutral-500);
+}
+
+.text-start-date {
+  display: block;
+  margin-bottom: 20px;
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Estilo del modal */
+.modal {
+  /* Capa de transparencia opaca */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro translúcido */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  backdrop-filter: blur(8px); /* Desenfoque */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-content {
+  /* Ventana modal */
+  background: var(--color-neutral-0);
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  min-height: 574px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 5px 0px rgba(127, 89, 248, 0.2),
+    0px 7px 10px 0px rgba(127, 89, 248, 0.14),
+    0px 2px 16px 0px rgba(127, 89, 248, 0.12);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Mostrar el modal */
+.modal.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Ocultar el modal */
+.modal.hidden {
+  display: none;
+}
+
+/* 000000000000000000000000000000000000 */
+/* =================FORMULARIO MODAL===================== */
+#addPersonForm {
+  /* Formulario del modal */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: transparent;
+  transform: translate(-50%, -50%);
+  width: 428px;
+  max-height: 804px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+.box-details-modal {
+  width: 100%;
+  margin: 10px 0; /* Espaciado entre cajas */
+}
+
+.detail-text {
+  display: block;
+  width: 100%;
+  height: 56px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: var(--color-primary-50);
+  font-size: var(--text-medium-medium);
+  color: var(--color-neutral-800);
+  border: none;
+  box-sizing: border-box; /* Asegura que el padding no afecte el tamaño */
+  line-height: 1.5;
+}
+
+/* Agregar sombras al contenedor */
+.detail-text {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Estilos para el contenedor del calendario */
+.calendar {
+  position: absolute;
+  background-color: var(--color-neutral-0);
+  border: 1px solid var(--color-neutral-300);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  z-index: 1000;
+}
+
+/* Ocultar el calendario por defecto */
+.hidden {
+  display: none;
+}
+
+/* Estilo de los días seleccionados */
+.calendar .selected-day {
+  background-color: var(--color-primary-500);
+  color: var(--color-neutral-0);
+  border-radius: 50%;
+}

@@ -46,3 +46,8 @@
 
     </main>
 @endsection
+
+@push('styles')
+    <!-- Agregar un archivo CSS específico para esta vista -->
+    @vite('resources/css/common-styles/admin-dashboard-styles.css')
+@endpush

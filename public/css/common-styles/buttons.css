@@ -1,0 +1,217 @@
+/* =================BOTONES===================== */
+.button
+{
+    display: flex;
+    justify-content: center; /* horizontal */
+    align-items: center; /* vertical */
+    font-size:18px;
+    font-weight:regular;    
+    text-align:center;
+    border: 3px solid transparent;
+    border-radius:10px;
+    cursor:pointer;
+    outline: none;
+    box-sizing: border-box;  
+    transition: all 0.7s ease;
+}
+
+.button-container
+{
+    display: flex;
+    padding: 10px;
+    gap: 20px;
+}
+
+/* BOTONES: Variantes por tamaño */
+.btn-giant
+{
+    min-width: 170px;
+    height: 56;
+    padding: 16px 24px;
+}
+
+.btn-large
+{
+    min-width: 150px;
+    height: 48px;
+    padding: 20px 14px;
+}
+
+.btn-medium
+{
+    min-width: 140px;
+    height: 40px;
+    padding: 16px 12px;
+}
+
+.btn-small
+{
+    min-width: 146px;
+    height: 32px;
+    padding: 6px 12px;
+}
+
+/* BOTONES: Variantes por color */
+.btn-filled
+{
+    background-color: var(--color-accent-300); /* 300 */
+    color: white;
+}
+
+.btn-outline
+{
+    background-color: white;
+    color:var(--color-accent-300);
+    border: 0.5px solid var(--color-accent-300);
+}
+
+/* BOTONES: Variantes por estado */
+.btn-filled:hover
+{
+    background-color: var(--color-primary-300);
+}
+
+.btn-filled:focus
+{
+    border: 2px solid var(--color-accent-200); /* 200 */
+    box-shadow: 
+        0px 0px 5px 0px rgba(127, 89, 248, 0.2),
+        0px 7px 10px 0px rgba(127, 89, 248, 0.14),
+        0px 2px 16px 0px rgba(127, 89, 248, 0.12); 
+
+}
+
+.btn-filled:active
+{
+    background-color: #191A3C;
+}
+
+/* ------------------ */
+
+.btn-outline:hover
+{
+    background-color: rgba(207,147,221, 0.50);
+}
+
+.btn-outline:focus
+{
+    border: 3px solid var(--color-accent-200); /* 200 */
+    box-shadow: 
+        0px 0px 5px 0px rgba(127, 89, 248, 0.2),
+        0px 7px 10px 0px rgba(127, 89, 248, 0.14),
+        0px 2px 16px 0px rgba(127, 89, 248, 0.12); 
+
+}
+
+.btn-outline:active
+{
+    background-color: rgba(207,147,221,1);
+}
+
+
+.btn-large-custom { /* Contactanos */
+    padding-right: 20px;
+    padding-left:20px;
+}
+
+
+
+
+
+/* *************** POR REVISAR *************** */
+.floating-button {
+    position: fixed;
+    bottom: 20px; /* Distancia desde el fondo */
+    right: 20px; /* Distancia desde el lado derecho */
+    background-color: var(--color-accent-300); /* Color principal */
+    color: var(--color-neutral-0); /* Texto blanco */
+    border: none;
+    border-radius: 50%; /* Botón circular */
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 
+        0 4px 6px var(--color-neutral-alpha-30), 
+        0 1px 3px var(--color-neutral-alpha-20); /* Sombras suaves */
+    cursor: pointer;
+    transition: 
+        background-color 0.3s ease, 
+        box-shadow 0.3s ease, 
+        transform 0.2s ease;
+    z-index: 1000; /* Encima de otros elementos */
+}
+
+.floating-button:hover {
+    background-color: var(--color-accent-400); /* Color al pasar el cursor */
+    box-shadow: 
+        0 8px 15px var(--color-neutral-alpha-40), 
+        0 4px 6px var(--color-neutral-alpha-30); /* Sombra más fuerte */
+    transform: translateY(-4px); /* Efecto de levitación */
+}
+
+.floating-button:active {
+    background-color: var(--color-accent-500); /* Color más oscuro al presionar */
+    box-shadow: 
+        0 2px 4px var(--color-neutral-alpha-40), 
+        0 1px 2px var(--color-neutral-alpha-30); /* Sombra más comprimida */
+    transform: translateY(2px); /* Simula hundimiento */
+}
+
+/* *************** POR REVISAR *************** */
+.floating-button::after {
+    content: "Validar Certificado"; /* Mensaje que aparece en hover */
+    position: absolute;
+    top: 50%; /* Centra verticalmente con respecto al botón */
+    left: -250%; /* Ajusta la posición horizontal a la izquierda */
+    transform: translateY(-50%); /* Centra el tooltip verticalmente */
+    background-color: var(--color-primary-300); /* Fondo del tooltip */
+    color: var(--color-neutral-0); /* Texto blanco */
+    padding: 8px 12px; /* Espaciado interno */
+    font-size: 0.85rem;
+    font-weight: var(--font-weight-medium, 500);
+    border-radius: 8px; /* Esquinas redondeadas */
+    white-space: nowrap; /* Evita que el texto se divida */
+    opacity: 0; /* Oculto por defecto */
+    visibility: hidden; /* No es interactivo mientras está oculto */
+    box-shadow: 
+        0 2px 4px var(--color-neutral-alpha-30), 
+        0 1px 2px var(--color-neutral-alpha-20); /* Sombras suaves */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1001; /* Por encima de otros elementos */
+}
+
+/* Mostrar el tooltip al pasar el cursor */
+.floating-button:hover::after {
+    opacity: 1; /* Muestra el tooltip */
+    visibility: visible; /* Lo hace interactivo */
+}
+
+
+/* ****************BOTONES PARA ACCIONES(AGREGAR/SUBIR)************** */
+
+.button-action
+{
+    display: flex;
+    justify-content: center; /* horizontal */
+    align-items: center; /* vertical */
+    gap: 8px;
+    font-size:var(--font-size-small);
+    font-weight:var(--font-weight-medium);    
+    text-align:center;
+    border-radius:6px;
+    cursor:pointer;
+    outline: none;
+    box-sizing: border-box;  
+    transition: all 0.7s ease;
+    
+}
+
+.action-buttons
+{
+    display: flex;
+    padding: 10px;
+    gap: 20px;
+}
+
