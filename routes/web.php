@@ -30,3 +30,4 @@ Route::post('/certificates/generatePDF', [CertificateGenerationController::class
 
 Route::view('/certificates/templateCertificate', 'certificates.templateCertificate')->name('certificates.templateCertificate');
 
+Route::get('/pdfView', [CertificateGenerationController::class, 'showPDF'])->name('certificates.pdfView');

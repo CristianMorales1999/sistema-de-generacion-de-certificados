@@ -12,6 +12,12 @@ use Illuminate\Http\Request;
 
 class CertificateGenerationController extends Controller
 {
+    public function showPDF(){
+        
+        $pdf = Pdf::loadView('certificates.pdfView');
+        return $pdf->stream('pdfView');
+    }
+
     public function showGenerationForm()
     {
         // Obtener todas las firmas junto con la persona y posición relacionadas
@@ -63,7 +69,7 @@ class CertificateGenerationController extends Controller
         //Total de firmas y roles
         foreach ($request->signatures as $signature_id) {
             if (!$group->signatureImages->contains($signature_id)) {
-                $group->signatureImages()->attach($signature_id);
+                $group->signatureImages()->attach($signature_id);   
             }
         }
         //Obtener el tipo de certificado
@@ -88,28 +94,14 @@ class CertificateGenerationController extends Controller
 
         $group->save();
 
-        // Paso 3: Obtener el estado "Validado" de la tabla certificate_statuses
-        // $validatedStatus = CertificateStatus::where('name', 'Validado')->first();
+        $signatures_id = $request->signatures;
+        $signatures = SignatureImage::with(['person', 'position'])
+            ->whereIn('id', $signatures_id)
+            ->get();
 
-        // // Verificar si el estado "Validado" existe
-        // if (!$validatedStatus) {
-        //     // Manejar el caso si no existe el estado "Validado"
-        //     return response()->json(['error' => 'Estado "Validado" no encontrado'], 404);
-        // }
-        // // Paso 4: Actualizar los certificados del grupo
-        // $group->certificates()->update([
-        //     'is_validated' => 1, // Cambiar a 1
-        //     'certificate_status_id' => $validatedStatus->id, // Cambiar al estado "Validado"
-        // ]);
-
-        // return view('certificates.generatePDF', compact('group', 'template', 'request->signatures'));
 
         $pdf = Pdf::loadView('certificates.generatePDF', compact('group', 'template', 'signatures'))
         ->setPaper('a4', 'landscape'); // Establece el tamaño de papel y orientación
-
-        // Desactivar el encabezado y pie de página
-        $pdf->setOption('no-header', true);
-        $pdf->setOption('no-footer', true);
 
         return $pdf->stream('certificates_' . $group->name . '_group' . '.pdf');
     }
